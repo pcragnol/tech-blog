@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name']
+          attributes: ['username']
         }
       ]
     });
@@ -40,6 +40,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/dashboard/newthread', withAuth, async (req, res) => {
+  res.render('new', {
+    logged_in: true
+  });
 });
 
 router.get('/login', (req, res) => {

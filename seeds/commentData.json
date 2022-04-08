@@ -1,0 +1,17 @@
+[
+  {
+    "content": "First! Lol.",
+    "user_id": 2,
+    "thread_id": 1
+  },
+  {
+    "content": "Second!",
+    "user_id": 3,
+    "thread_id": 1
+  },
+  {
+    "content": "I concur!",
+    "user_id": 1,
+    "thread_id": 2
+  }
+]

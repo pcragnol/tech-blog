@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Hello, Blog!",
+    "content": "This is my thread!",
+    "user_id": 1
+  },
+  {
+    "title": "Coding is dope",
+    "content": "Gee Willikers! I love coding!",
+    "user_id": 2
+  }
+]
