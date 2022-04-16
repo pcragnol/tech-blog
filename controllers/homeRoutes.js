@@ -43,7 +43,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/dashboard/newthread', withAuth, async (req, res) => {
-  res.render('new', {
+  res.render('newthread', {
     logged_in: true
   });
 });

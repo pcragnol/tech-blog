@@ -1,17 +1,16 @@
-<div>
-  <h2>Add New Thread</h2>
+<form class="thread-form">
+  <fieldset>
+    <legend>New Thread</legend>
+    <div class="mb-3">
+      <label for="threadTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="threadTitle" placeholder="Sir Thread IV">
+    </div>
+    <div class="mb-3">
+      <label for="threadContent" class="form-label">Content</label>
+      <textarea class="form-control" id="threadContent" rows="3" placeholder="Tell us how you really feel."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ship it!</button>
+  </fieldset>
+</form>
 
-  <form class="form login-form" id="loginForm">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input class="form-input" type="text" id="title" />
-    </div>
-    <div class="form-group">
-      <label for="content">Content:</label>
-      <textarea class="form-input" id="content"></textarea>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">Create Thread</button>
-    </div>
-  </form>
-</div>
+<script src="/scripts/newthread.js"></script>
