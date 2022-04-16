@@ -1,10 +1,13 @@
 const router = require('express').Router();
-const { User, Thread } = require('../models');
+const { User, Thread, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     const threadData = await Thread.findAll({
+      order: [
+        ['date_created', 'DESC']
+      ],
       include: [
         {
           model: User,
@@ -17,6 +20,33 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       threads,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/thread/:id', async (req, res) => {
+  try {
+    const threadData = await Thread.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ]
+        }
+      ]
+    });
+
+    const thread = threadData.get({ plain: true });
+
+    res.render('thread', {
+      ...thread,
       logged_in: req.session.logged_in
     });
   } catch (err) {
