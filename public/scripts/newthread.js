@@ -1,8 +1,8 @@
 const threadFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#threadTitle').value.trim();
-  const content = document.querySelector('#threadContent').value.trim();
+  const title = document.querySelector('#thread-title').value.trim();
+  const content = document.querySelector('#thread-content').value.trim();
 
   if (title && content) {
     const response = await fetch('/api/threads', {

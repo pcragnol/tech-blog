@@ -32,6 +32,10 @@ router.get('/thread/:id', async (req, res) => {
     const threadData = await Thread.findByPk(req.params.id, {
       include: [
         {
+          model: User,
+          attributes: ['username']
+        },
+        {
           model: Comment,
           include: [
             {
@@ -76,6 +80,28 @@ router.get('/dashboard/newthread', withAuth, async (req, res) => {
   res.render('newthread', {
     logged_in: true
   });
+});
+
+router.get('/thread/:id/comment', withAuth, async (req, res) => {
+  try {
+    const threadData = await Thread.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    });
+
+    const thread = threadData.get({ plain: true });
+
+    res.render('comment', {
+      ...thread,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req, res) => {
