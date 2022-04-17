@@ -58,6 +58,28 @@ router.get('/thread/:id', async (req, res) => {
   }
 });
 
+router.get('/thread/:id/comment', withAuth, async (req, res) => {
+  try {
+    const threadData = await Thread.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    });
+
+    const thread = threadData.get({ plain: true });
+
+    res.render('comment', {
+      ...thread,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -82,7 +104,7 @@ router.get('/dashboard/newthread', withAuth, async (req, res) => {
   });
 });
 
-router.get('/thread/:id/comment', withAuth, async (req, res) => {
+router.get('/dashboard/editthread/:id', withAuth, async (req, res) => {
   try {
     const threadData = await Thread.findByPk(req.params.id, {
       include: [
@@ -95,7 +117,7 @@ router.get('/thread/:id/comment', withAuth, async (req, res) => {
 
     const thread = threadData.get({ plain: true });
 
-    res.render('comment', {
+    res.render('editthread', {
       ...thread,
       logged_in: true
     });

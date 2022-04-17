@@ -1,0 +1,17 @@
+<form class="thread-form">
+  <fieldset>
+    <legend>Edit Thread</legend>
+    <div class="mb-3">
+      <label for="thread-title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="thread-title" placeholder="Sir Thread IV" value="{{title}}">
+    </div>
+    <div class="mb-3">
+      <label for="thread-content" class="form-label">Content</label>
+      <textarea class="form-control" id="thread-content" rows="3" placeholder="Tell us how you really feel.">{{content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit Thread!</button>
+  </fieldset>
+</form>
+<a href="/dashboard">Back</a>
+
+<script src="/scripts/editthread.js"></script>

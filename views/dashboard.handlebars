@@ -1,4 +1,4 @@
-<h2>Welcome, {{username}}!</h2>
+<h2>Hello, {{username}}!</h2>
 <h3><a href="/dashboard/newthread">New Thread</a></h3>
 {{#each threads as |thread|}}
 <div class="card" style="width: 18rem;">
@@ -8,6 +8,7 @@
     </h2>
     <h3 class="card-subtitle mb-2 text-muted">Posted on {{format_date thread.date_created}}</h3>
     <p class="card-text">{{thread.content}}</p>
+    <a href="/dashboard/editthread/{{thread.id}}">Edit Thread</a>
   </div>
 </div>
 {{/each}}
