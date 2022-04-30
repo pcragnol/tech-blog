@@ -3,7 +3,8 @@ const Thread = require('./Thread');
 const Comment = require('./Comment');
 
 User.hasMany(Thread, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 Thread.belongsTo(User, {
@@ -11,7 +12,8 @@ Thread.belongsTo(User, {
 });
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(User, {
@@ -19,7 +21,8 @@ Comment.belongsTo(User, {
 });
 
 Thread.hasMany(Comment, {
-  foreignKey: 'thread_id'
+  foreignKey: 'thread_id',
+  onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Thread, {

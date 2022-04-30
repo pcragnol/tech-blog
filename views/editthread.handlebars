@@ -1,4 +1,4 @@
-<form class="thread-form">
+<form class="thread-form" data-id="{{id}}">
   <fieldset>
     <legend>Edit Thread</legend>
     <div class="mb-3">
@@ -9,7 +9,8 @@
       <label for="thread-content" class="form-label">Content</label>
       <textarea class="form-control" id="thread-content" rows="3" placeholder="Tell us how you really feel.">{{content}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Edit Thread!</button>
+    <button type="submit" class="btn btn-primary btn-edit">Edit Thread!</button>
+    <button type="click" class="btn btn-danger btn-delete" data-id="{{id}}">Delete Thread!</button>
   </fieldset>
 </form>
 <a href="/dashboard">Back</a>
