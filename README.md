@@ -17,7 +17,7 @@ npm i
 mysql -uroot -p
 source db/schema
 ^c
-node seeds/seed.js
+npm run seed
 npm start
 ```
 
